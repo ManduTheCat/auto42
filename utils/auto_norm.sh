@@ -1,3 +1,6 @@
 #!/bin/sh
 # automatic norm for arguments directory
-norminette -R CheckForbiddenSourceHeader ../$1
+function auto_norm()
+{
+    norminette -R CheckForbiddenSourceHeader ../$1
+}

@@ -20,10 +20,20 @@ done
 
 # MAIN
 versions "0.0.1"
-if [ "$1" = "help" ];then
+if [ $# -eq 0 ]
+then
+	echo "directory to test not specified"
+	exit
+elif [ "$1" = "help" ]
+then
 	cat ./utils/help.txt
 	exit
+else
+	echo "*** Testing for directory $1 ***"
+	echo "* auto norminette testing *"
+	auto_norm $1
+	echo "* auto compiling subdirectories of $1 *"
+	#auto_compile $1
 fi
-auto_norm c00
 
 #auto_c_main
