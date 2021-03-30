@@ -1,1 +1,4 @@
-hello world!
+please be informed that this program is bound to crash on ex10+ 
+since i was lazy and only made it work for 0?.
+it will be fixed someday when i have to face c0? with more than 9 examples
+(maybe)

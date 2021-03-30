@@ -3,24 +3,11 @@
 # IMPORT FUNCTIONS
 source ./utils/versions.sh
 source ./utils/auto_norm.sh
-#source ./utils/auto_c_main.sh
-
-function auto_c_main()
-{
-echo "auto creating main.c for $func"
-for func in ../ex0?/*
-do
-	echo "int	main(void)	" >> ./main.c
-	echo "{					" >> ./main.c
-	echo "$func($arguments);" >> ./main.c
-	echo "return 0;			" >> ./main.c
-	echo "}					" >> ./main.c
-done
-}
+source ./utils/auto_compile.sh
 
 # MAIN
 versions "0.0.1"
-if [ $# -eq 0 ]
+if [ $# -eq 1 ] #temporary; fix it to 0 when on actual release
 then
 	echo "directory to test not specified"
 	exit
@@ -29,11 +16,14 @@ then
 	cat ./utils/help.txt
 	exit
 else
-	echo "*** Testing for directory $1 ***"
-	echo "* auto norminette testing *"
-	auto_norm $1
-	echo "* auto compiling subdirectories of $1 *"
-	#auto_compile $1
+	#testdir=$1
+	testdir="c00"
+	#echo "*** Testing for directory $testdir ***"
+	#echo "* auto norminette testing for $testdir... *"
+	#echo "what's wrong about autonorm?"
+	#auto_norm $testdir
+	#echo "* auto compiling subdirectories of $testdir *"
+	auto_compile $testdir
 fi
 
 #auto_c_main
