@@ -34,7 +34,7 @@ function auto_c_main()
 {
     testdir=$1; num=$2
 	destdir="./temp/$testdir/"
-    echo "* auto creating main.c for $func *"
+    echo "* auto creating main.c for $testdir *"
     # find and auto create main.c
 	for ((i=0; i<$num; i++)) 
 	do
@@ -70,6 +70,13 @@ function auto_compile()
 {
     testdir=$1; num=$2
     tempdir="./temp/$testdir"
+    # * check if temp exsist first *
+    if [ ! -d "./temp" ]
+    then
+        echo "no temp file located, creating..."
+        mkdir ./temp
+    fi
+
     echo "* auto compiling $num files for $testdir*"
     for ((i=0; i<$num; i++))
     do

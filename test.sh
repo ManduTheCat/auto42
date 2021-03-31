@@ -23,6 +23,7 @@ else
 	echo "*** Testing for directory $testdir ***"
 	echo "* auto norminette testing for $testdir... *"
 	auto_norm $testdir
+	echo "* auto norminette finished *"
 	echo "* auto compiling subdirectories of $testdir *"
 	auto_test $testdir
 	echo "*** Program Finished ***"
